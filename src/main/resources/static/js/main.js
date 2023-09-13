@@ -9,10 +9,12 @@ $(document).ready(function (){
         let cardNumber = creditCardForm.find("#cardPanNumber").val();
         let cardExpiry = creditCardForm.find("#cardExpiryDate").val();
         let cardCVV = creditCardForm.find("#cardCVV").val();
-        
+        console.log("cardNumber " + cardNumber);
+        console.log("cardExpiry " + cardExpiry);
+        console.log("cardCVV " + cardCVV);
         $.ajax({
             type: 'POST',
-            url: '/api/v1/credit-card/validate',
+            url: '/api/v1/credit-card/validate/',
             contentType: 'application/json',
             data: JSON.stringify({
                 'cardNumber': cardNumber,
@@ -30,8 +32,8 @@ $(document).ready(function (){
                 let message = response.message;
                 let errors = response.errors;
 
-                creditCardForm.removeClass("card-error-gradient card-normal-gradient");
-                creditCardForm.addClass("card-success-gradient");
+                creditCardForm.removeClass("card-success-gradient card-normal-gradient");
+                creditCardForm.addClass("card-error-gradient");
             }
         });
 
