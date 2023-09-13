@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .input-group{
+        @apply flex;
+        @apply flex-col;
+        @apply gap-1
+
+    }
+
+    .card-input{
+        @apply p-2;
+        @apply rounded-lg;
+        @apply bg-black/40;
+        @apply outline-none;
+        @apply border;
+        @apply border-transparent;
+        @apply focus:border-white;
+        @apply font-semibold;
+        @apply text-sm;
+    }
+
+    .card-normal-gradient{
+        @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))];
+        @apply from-sky-400;
+        @apply to-indigo-900;
+    }
+
+    .card-success-gradient{
+        @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))];
+        @apply from-green-500;
+        @apply to-green-700;
+    }
+
+    .card-error-gradient{
+        @apply bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))];
+        @apply from-red-500;
+        @apply to-red-700;
+    }
+}

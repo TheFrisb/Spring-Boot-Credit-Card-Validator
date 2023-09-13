@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit card validation</title>
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-orange-900 via-amber-100 to-orange-900">
+
+    <!--
+        Some of the classes such as input-group and card-input are defined
+        as custom Tailwind classes in main.css
+    -->
+
+    <div class="grid h-screen w-screen place-items-center">
+        <div class="formContainer w-6/12 ">
+            <form action="23" class="flex flex-col p-4 gap-3 rounded-lg shadow-amber-700 shadow-2xl text-white card-normal-gradient" id="CreditCardValidationForm">
+                <div class="input-group">
+                    <label for="cardPanNumber" class="font-semibold">Card number</label>
+                    <input type="text" name="cardPanNumber" id="cardPanNumber" class="card-input" placeholder="5123-8567-4999-1023">
+                </div>
+                <div class="flex items-center justify-between ">
+                    <div class="input-group">
+                        <label for="cardExpiryDate" class="font-semibold">Expiry date</label>
+                        <input type="text" name="cardExpiryDate" id="cardExpiryDate" class="card-input" placeholder="07/24">
+                    </div>
+                    <div class="input-group">
+                        <label for="cardCVV" class="font-semibold">CVV</label>
+                        <input type="text" name="cardCVV" id="cardCVV" class="card-input" placeholder="774">
+                    </div>
+                </div>
+                <div class="flex-col errorsContainer" >
+                    <p class="text-xs">Error message</p>
+                </div>
+                <button type="submit" class="p-2 font-semibold rounded-lg bg-gradient-to-r from-rose-400 to-red-500 hover:to-red-700">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <!-- Catch CDN fail !-->
+    <script>window.jQuery || document.write('<script src="/js/jquery-3.7.0.min.js"><\/script>')</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
