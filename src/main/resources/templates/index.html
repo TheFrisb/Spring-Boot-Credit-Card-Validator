@@ -15,7 +15,13 @@
 
     <div class="grid h-screen w-screen place-items-center">
         <div class="formContainer w-6/12 ">
-            <form action="23" class="flex flex-col p-4 gap-3 rounded-lg shadow-amber-700 shadow-2xl text-white card-normal-gradient" id="CreditCardValidationForm">
+            <!-- A good idea here in a real world application
+             is to pass the url where the VALID cards will be processed
+             (replacing action="#" with the url),
+             and on success in the ajax call in main.js
+             submit the form.
+             -->
+            <form action="#" class="flex flex-col p-4 gap-3 rounded-lg shadow-amber-700 shadow-2xl text-white card-normal-gradient" id="CreditCardValidationForm">
                 <div class="input-group">
                     <label for="cardPanNumber" class="font-semibold">Card number</label>
                     <input type="text" name="cardPanNumber" id="cardPanNumber" class="card-input" placeholder="5123-8567-4999-1023">
@@ -23,15 +29,15 @@
                 <div class="flex items-center justify-between ">
                     <div class="input-group">
                         <label for="cardExpiryDate" class="font-semibold">Expiry date</label>
-                        <input type="text" name="cardExpiryDate" id="cardExpiryDate" class="card-input" placeholder="07/24">
+                        <input type="text" name="cardExpiryDate" id="cardExpiryDate" class="card-input" placeholder="mm/yy" maxlength="5">
                     </div>
                     <div class="input-group">
                         <label for="cardCVV" class="font-semibold">CVV</label>
-                        <input type="text" name="cardCVV" id="cardCVV" class="card-input" placeholder="774">
+                        <input type="text" name="cardCVV" id="cardCVV" class="card-input" placeholder="734" maxlength="4">
                     </div>
                 </div>
-                <div class="flex-col errorsContainer" >
-                    <p class="text-xs">Error message</p>
+                <div class="flex-col errorsContainer ">
+
                 </div>
                 <button type="submit" class="p-2 font-semibold rounded-lg bg-gradient-to-r from-rose-400 to-red-500 hover:to-red-700">Submit</button>
             </form>

@@ -2,15 +2,16 @@ package com.example.CreditCardValidator.CardValidator;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.ServletWebRequest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @RestController
 @RequestMapping(path = "/api/v1/credit-card")
@@ -21,26 +22,34 @@ public class CreditCardController {
     public CreditCardController(CreditCardService creditCardService){
         this.creditCardService = creditCardService;
     }
+
     @PostMapping("/validate/")
     public ResponseEntity<?> validateCreditCard(@Valid @RequestBody CreditCardDTO creditCardDTO){
-        ArrayList<String> errorList = new ArrayList<String>();
-
-
-        if(!creditCardService.isExpiryDateValid(creditCardDTO.getCardExpiry())){
-            errorList.add("Expiry date cannot be in the past");
-        }
+        Map<String, List<String>> errorDetails = new HashMap<>();
 
         if(!creditCardService.isValidCVV(creditCardDTO.getCardNumber(), creditCardDTO.getCardCVV())){
-            errorList.add("CVV must be exactly 4 digits for Mastercard, 3 digits for other cards.");
+            errorDetails.put("cardCVV", Collections.singletonList("CVV must be exactly 4 digits for Mastercard, 3 digits for other cards"));
+        }
+
+        if(!creditCardService.isExpiryDateValid(creditCardDTO.getCardExpiry())){
+            errorDetails.put("cardExpiry", Collections.singletonList("Expiry date must be in the future"));
         }
 
         if(!creditCardService.isCardNumberLuhnValid(creditCardDTO.getCardNumber())){
-            errorList.add("Luhn fail!");
+            errorDetails.put("cardNumber", Collections.singletonList("Card number can not exist or is no longer valid (Luhn algorithm)"));
         }
 
-        if(errorList.isEmpty()){
-            return ResponseEntity.status(200).body("valid");
+        if (!errorDetails.isEmpty()) {
+            throw new InvalidCreditCardException("Invalid credit card", errorDetails);
         }
-        return ResponseEntity.badRequest().body(errorList);
+
+        Map<String, Object> JsonResponse = new HashMap<>();
+        JsonResponse.put("timestamp", LocalDateTime.now().toString());
+        JsonResponse.put("status", 200);
+        JsonResponse.put("success", "success");
+        JsonResponse.put("message", "Credit card is valid");
+        JsonResponse.put("details", new HashMap<>());
+
+        return ResponseEntity.status(200).body(JsonResponse);
     }
 }
