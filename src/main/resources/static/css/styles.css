@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+    Activate tailwind watcher
+     npx tailwindcss -i ./src/main/resources/static/css/styles.css -o ./src/main/resources/static/css/output.css
+ */
+
 @layer components{
     .input-group{
         @apply flex;
