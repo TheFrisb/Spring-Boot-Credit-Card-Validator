@@ -27,13 +27,24 @@ $(document).ready(function (){
                 creditCardForm.addClass("card-success-gradient");
                 creditCardFormErrorsContainer.empty();
                 jsConfetti.addConfetti();
+
+                /*
+                    If the form is valid, submit it for processing
+                    creditCardForm.submit()..
+                 */
             },
             error: function(xhr, textStatus, error){
                 let response = xhr.responseJSON;
                 let message = response.message;
-                let errors = response.errors;
-                console.log(errors);
-                // <p class="text-xs">Error message</p>
+                let errors = response.details;
+                creditCardFormErrorsContainer.empty();
+                for(let key in errors){
+                    let errorMessages = errors[key];
+                    errorMessages.forEach(message => {
+                        let errorElement = `<p class="text-xs">${message}</p>`;
+                        creditCardFormErrorsContainer.append(errorElement);
+                    });
+                }
                 creditCardForm.removeClass("card-success-gradient card-normal-gradient");
                 creditCardForm.addClass("card-error-gradient");
             }

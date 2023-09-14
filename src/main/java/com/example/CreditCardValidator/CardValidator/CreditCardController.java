@@ -28,7 +28,7 @@ public class CreditCardController {
         Map<String, List<String>> errorDetails = new HashMap<>();
 
         if(!creditCardService.isValidCVV(creditCardDTO.getCardNumber(), creditCardDTO.getCardCVV())){
-            errorDetails.put("cardCVV", Collections.singletonList("CVV must be exactly 4 digits for Mastercard, 3 digits for other cards"));
+            errorDetails.put("cardCVV", Collections.singletonList("CVV must be exactly 4 digits for American Express, 3 digits for other cards"));
         }
 
         if(!creditCardService.isExpiryDateValid(creditCardDTO.getCardExpiry())){
