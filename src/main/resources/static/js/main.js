@@ -50,6 +50,27 @@ $(document).ready(function (){
             }
         });
 
-        
     });
+
+    $("#cardExpiryDate").bind('keyup','keydown', function(e) {
+        let input = $(this);
+        let inputLength = input.val().length;
+        // console.log(inputLength);
+        if (e.keyCode !== 8){ // if not backspace
+            let value = input.val();
+
+            if(inputLength === 2){
+                value += '/';
+                input.val(value);
+            }
+            if(inputLength === 3){
+                if(!value.includes("/")){
+                    let month = value.substring(0, 2);
+                    let year = value.substring(2);
+                    value = month + "/" + year;
+                    input.val(value);
+                }
+            }
+        }
+    })
 })
