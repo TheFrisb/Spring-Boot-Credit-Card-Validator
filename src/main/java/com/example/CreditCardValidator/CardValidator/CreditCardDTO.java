@@ -25,6 +25,7 @@ public class CreditCardDTO {
      */
 
     @Size(min = 16, max = 19, message = "Field cardNumber must contain 16 to 19 digits.")
+    @Pattern(regexp = "^[0-9]+$", message = "Field cardNumber must contain only numeric characters.")
     private String cardNumber;
 
     @Pattern(regexp = "^(0[1-9]|1[0-2])\\/\\d{2}$", message = "Field cardExpiry must be in the format MM/YY (Slash included)")

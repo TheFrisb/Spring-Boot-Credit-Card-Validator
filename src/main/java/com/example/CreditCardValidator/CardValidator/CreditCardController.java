@@ -43,6 +43,13 @@ public class CreditCardController {
             throw new InvalidCreditCardException("Invalid credit card", errorDetails);
         }
 
+        /*
+            The code below for this case is not really needed
+            as the frontend does not use any of it,
+            except that it is a success.
+            return ResponseEntity.ok(); is also sufficient.
+         */
+
         Map<String, Object> JsonResponse = new HashMap<>();
         JsonResponse.put("timestamp", LocalDateTime.now().toString());
         JsonResponse.put("status", 200);
@@ -51,5 +58,6 @@ public class CreditCardController {
         JsonResponse.put("details", new HashMap<>());
 
         return ResponseEntity.status(200).body(JsonResponse);
+
     }
 }

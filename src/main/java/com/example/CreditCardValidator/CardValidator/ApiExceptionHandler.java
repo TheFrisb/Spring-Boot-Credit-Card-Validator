@@ -22,6 +22,7 @@ public class ApiExceptionHandler {
         Also by custom defining this exception handler, and the one below it,
         I am ensuring an expected JSON format on the frontend, where the error function will handle it the same,
         no matter which exception is raised.
+        Also credit card info values will not be logged.
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, WebRequest webRequest) {
