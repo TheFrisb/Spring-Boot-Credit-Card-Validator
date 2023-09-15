@@ -76,9 +76,9 @@ However in this specific application only 1 error message is returned per field
 ```json
 {
     "details": {   
-        cardCVV: ["Field cardCVV must be 3 or 4 digits"]
-        cardExpiry: ["Field cardExpiry must be in the format MM/YY (Slash included)"]
-        cardNumber: ["Field cardNumber must contain 16 to 19 digits"]
+        "cardCVV": ["Field cardCVV must be 3 or 4 digits"]
+        "cardExpiry": ["Field cardExpiry must be in the format MM/YY (Slash included)"]
+        "cardNumber": ["Field cardNumber must contain 16 to 19 digits"]
     }
     "error": "Bad Request"
     "message": "Invalid input fields"
