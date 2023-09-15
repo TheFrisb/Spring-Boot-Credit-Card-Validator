@@ -74,28 +74,32 @@ However in this specific application only 1 error message is returned per field
 
 *Error (invalid inputs):
 ```json
-details: {   
-    cardCVV: ["Field cardCVV must be 3 or 4 digits"]
-    cardExpiry: ["Field cardExpiry must be in the format MM/YY (Slash included)"]
-    cardNumber: ["Field cardNumber must contain 16 to 19 digits"]
+{
+    "details": {   
+        cardCVV: ["Field cardCVV must be 3 or 4 digits"]
+        cardExpiry: ["Field cardExpiry must be in the format MM/YY (Slash included)"]
+        cardNumber: ["Field cardNumber must contain 16 to 19 digits"]
+    }
+    "error": "Bad Request"
+    "message": "Invalid input fields"
+    "path": "/api/v1/credit-card/validate/"
+    "status": 400
+    "timestamp": "2023-09-15T13:03:18.769477"
 }
-error: "Bad Request"
-message: "Invalid input fields"
-path: "/api/v1/credit-card/validate/"
-status: 400
-timestamp: "2023-09-15T13:03:18.769477"
 ```
 
 *Error (logic error):
 ```json
-details: {
-    cardCVV: ["CVV must be exactly 4 digits for American Express, 3 digits for other cards"]
-    cardExpiry: ["Expiry date must be in the future"]
-    cardNumber: ["Card number can not exist or is no longer valid (Luhn algorithm)"]
+{
+    "details": {
+        cardCVV: ["CVV must be exactly 4 digits for American Express, 3 digits for other cards"]
+        cardExpiry: ["Expiry date must be in the future"]
+        cardNumber: ["Card number can not exist or is no longer valid (Luhn algorithm)"]
+    }
+    "error": "Bad Request"
+    "message": "Invalid credit card"
+    "path": "/api/v1/credit-card/validate/"
+    "status": 400
+    "timestamp": "2023-09-15T13:05:32.329195600"
 }
-error: "Bad Request"
-message: "Invalid credit card"
-path: "/api/v1/credit-card/validate/"
-status: 400
-timestamp: "2023-09-15T13:05:32.329195600"
 ```
