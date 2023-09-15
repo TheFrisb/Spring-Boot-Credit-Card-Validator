@@ -54,13 +54,13 @@ you can make API calls to validate credit card details.
 
 ```json
 {
-    "cardNumber": "4568-7701-3205-8102", // Whitespace and - is automatically removed and can be used as separators
+    "cardNumber": "4568-7701-3205-8102", // Whitespace and '-' is automatically removed and can be used as separators
     "cardExpiry": "01/28",
     "cardCVV": "734"
 }
 ```
 
-*Success:
+**Success**:
 ```json
 {
     "details": {}
