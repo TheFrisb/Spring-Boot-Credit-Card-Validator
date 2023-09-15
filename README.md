@@ -3,7 +3,7 @@
 This application offers validation for credit card information using the Hibernate Starter Validation. 
 It checks the CVV, expiry date, card number, and also ensures that the card number adheres to the Luhn algorithm.
 
-![Application Screenshot](https://ibb.co/rGq9XPp)
+![Application Screenshot](https://i.ibb.co/KjBn8Zs/Screenshot-1.png)
 
 ## Technologies Used
 
