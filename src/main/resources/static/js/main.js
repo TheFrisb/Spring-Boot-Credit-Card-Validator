@@ -10,9 +10,6 @@ $(document).ready(function (){
         let cardNumber = creditCardForm.find("#cardPanNumber").val();
         let cardExpiry = creditCardForm.find("#cardExpiryDate").val();
         let cardCVV = creditCardForm.find("#cardCVV").val();
-        console.log("cardNumber " + cardNumber);
-        console.log("cardExpiry " + cardExpiry);
-        console.log("cardCVV " + cardCVV);
         $.ajax({
             type: 'POST',
             url: '/api/v1/credit-card/validate/',
@@ -27,12 +24,12 @@ $(document).ready(function (){
                 creditCardForm.addClass("card-success-gradient");
                 creditCardFormErrorsContainer.empty();
                 jsConfetti.addConfetti();
-
                 /*
                     If the form is valid, submit it for processing
                     creditCardForm.submit()..
                  */
             },
+
             error: function(xhr, textStatus, error){
                 let response = xhr.responseJSON;
                 let message = response.message;
@@ -55,7 +52,6 @@ $(document).ready(function (){
     $("#cardExpiryDate").bind('keyup','keydown', function(e) {
         let input = $(this);
         let inputLength = input.val().length;
-        // console.log(inputLength);
         if (e.keyCode !== 8){ // if not backspace
             let value = input.val();
 
@@ -63,7 +59,12 @@ $(document).ready(function (){
                 value += '/';
                 input.val(value);
             }
+
             if(inputLength === 3){
+                /*
+                    If the user typed 3 digits or more, and then deleted some and is stuck on length 2,
+                    automatically add the slash before the next digit when it is entered
+                 */
                 if(!value.includes("/")){
                     let month = value.substring(0, 2);
                     let year = value.substring(2);

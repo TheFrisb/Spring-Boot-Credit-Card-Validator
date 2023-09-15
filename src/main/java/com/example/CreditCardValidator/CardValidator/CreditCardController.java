@@ -2,13 +2,12 @@ package com.example.CreditCardValidator.CardValidator;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.ServletWebRequest;
+
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -45,8 +44,8 @@ public class CreditCardController {
 
         /*
             The code below for this case is not really needed
-            as the frontend does not use any of it,
-            except that it is a success.
+            as the frontend does not use any of the response JSON,
+            except that it is a success response.
             return ResponseEntity.ok(); is also sufficient.
          */
 

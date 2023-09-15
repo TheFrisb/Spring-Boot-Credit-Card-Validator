@@ -4,7 +4,7 @@
 
 /*
     Activate tailwind watcher
-     npx tailwindcss -i ./src/main/resources/static/css/styles.css -o ./src/main/resources/static/css/output.css
+     npx tailwindcss -i ./src/main/resources/static/css/styles.css -o ./src/main/resources/static/css/output.css --watch
  */
 
 @layer components{
