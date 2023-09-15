@@ -27,7 +27,7 @@ Sensitive error messages are prevented from leaking. For this reason, custom exc
 
 ## 🚀 Installation & Setup
 
-** Prerequisites **
+**Prerequisites**
 Ensure you have **Maven** and **Java 20+** installed.
 
 1. **Clone the Repository**
