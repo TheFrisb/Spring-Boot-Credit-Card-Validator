@@ -30,7 +30,7 @@ Input validation warnings are supressed so that sensitive card information is no
 1. **Clone the Repository**
     ```bash
     git clone https://github.com/TheFrisb/Spring-Boot-Credit-Card-Validator.git
-    cd ..
+    cd Spring-Boot-Credit-Card-Validator 
     ```
 
 2. **Build and Run the Application**
