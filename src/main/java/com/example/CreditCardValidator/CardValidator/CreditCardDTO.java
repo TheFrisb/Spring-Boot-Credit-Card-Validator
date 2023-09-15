@@ -7,7 +7,8 @@ import jakarta.validation.constraints.Size;
 
 public class CreditCardDTO {
     /*
-        The setter methods remove leading and trailing
+        Since we can't use front-end validation or input sanitization,
+        the setter methods will remove leading and trailing
         white spaces for the CVV and Expiry Date
         to enable correct testing against the Regex pattern,
         and for the Card Number, '-' and white spaces are removed.
