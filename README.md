@@ -1,17 +1,17 @@
-﻿# Spring-Boot Credit Card Validator
+﻿# Spring-Boot Credit Card Validator 🌐
 
 This application offers validation for credit card information using the Hibernate Starter Validation. 
 It checks the CVV, expiry date, card number, and also ensures that the card number adheres to the Luhn algorithm.
 
 ![Application Screenshot](https://i.ibb.co/KjBn8Zs/Screenshot-1.png)
 
-## Technologies Used
+## 🛠️ Technologies & Libraries
 
-- Java w Spring Boot
-- Hibernate Validator
-- Tailwind CSS
+- **Java** with **Spring Boot**
+- **Hibernate Validator**
+- **Tailwind CSS**
 
-## Features
+## ✨ Features
 
 - Validates CVV to ensure it meets the criteria per card type.
 - Checks the expiry date of the credit card.
@@ -19,13 +19,16 @@ It checks the CVV, expiry date, card number, and also ensures that the card numb
 - Provides a clear API response for validation or logic errors.
 - Custom exception handling for enhanced error clarity and security.
 
-## Secure Error Handling
+## Secure Error Handling 🔐
 Sensitive error messages are prevented from leaking. For this reason, custom exception handling has been implemented. It ensures that:
 
-Users receive only generic error messages that do not expose internal system details.
-Input validation warnings are supressed so that sensitive card information is not leaked to the console.
+* **Generic Error Messages:** Users receive non-specific error messages that prevent exposure of system internals.
+* **Suppressed Warnings:** No sensitive card details are leaked in console outputs.
 
-## Installation & Setup
+## 🚀 Installation & Setup
+
+** Prerequisites **
+Ensure you have **Maven** and **Java 20+** installed.
 
 1. **Clone the Repository**
     ```bash
@@ -33,18 +36,15 @@ Input validation warnings are supressed so that sensitive card information is no
     cd Spring-Boot-Credit-Card-Validator 
     ```
 
-2. **Build and Run the Application**
-   Make sure you have Maven and Java 20+ installed.
+2. **Build & Kickstart the Application**
     ```bash
     mvn clean install
     mvn spring-boot:run
     ```
 
-4. The application will start on `http://localhost:8080`. 
-You can now open the link and fill out the form or 
-you can make API calls to validate credit card details.
+3. Access the app at http://localhost:8080. Use the form interface or make API calls for credit card validation..
 
-## Usage
+## 📌 Usage
 
 **Endpoint:** `/api/v1/credit-card/validate/`
 
@@ -54,7 +54,7 @@ you can make API calls to validate credit card details.
 
 ```json
 {
-    "cardNumber": "4568-7701-3205-8102", // Whitespace and '-' is automatically removed and can be used as separators
+    "cardNumber": "4568-7701-3205-8102", // Whitespace and '-' are automatically removed and can be used as separators
     "cardExpiry": "01/28",
     "cardCVV": "734"
 }
