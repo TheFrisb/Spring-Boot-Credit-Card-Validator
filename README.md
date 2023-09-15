@@ -62,11 +62,13 @@ you can make API calls to validate credit card details.
 
 *Success:
 ```json
-details: {}
-message: "Credit card is valid"
-status: 200
-success: "success"
-timestamp:  "2023-09-15T13:02:15.715990900"
+{
+    "details": {}
+    "message": "Credit card is valid"
+    "status": 200
+    "success": "success"
+    "timestamp":  "2023-09-15T13:02:15.715990900"
+}
 ```
 When errors are encountered, the error messages will be returned as a list,
 so that if a field has more than 1 validation or logic error, multiple messages can be returned.
@@ -92,9 +94,9 @@ However in this specific application only 1 error message is returned per field
 ```json
 {
     "details": {
-        cardCVV: ["CVV must be exactly 4 digits for American Express, 3 digits for other cards"]
-        cardExpiry: ["Expiry date must be in the future"]
-        cardNumber: ["Card number can not exist or is no longer valid (Luhn algorithm)"]
+        "cardCVV": ["CVV must be exactly 4 digits for American Express, 3 digits for other cards"]
+        "cardExpiry": ["Expiry date must be in the future"]
+        "cardNumber": ["Card number can not exist or is no longer valid (Luhn algorithm)"]
     }
     "error": "Bad Request"
     "message": "Invalid credit card"
