@@ -74,7 +74,7 @@ When errors are encountered, the error messages will be returned as a list,
 so that if a field has more than 1 validation or logic error, multiple messages can be returned.
 However in this specific application only 1 error message is returned per field
 
-*Error (invalid inputs):
+**Error (invalid inputs)**:
 ```json
 {
     "details": {   
@@ -90,7 +90,7 @@ However in this specific application only 1 error message is returned per field
 }
 ```
 
-*Error (logic error):
+**Error (logic error)**:
 ```json
 {
     "details": {
