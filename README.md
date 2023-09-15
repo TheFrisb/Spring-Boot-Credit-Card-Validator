@@ -34,13 +34,13 @@ Input validation warnings are supressed so that sensitive card information is no
     ```
 
 2. **Build and Run the Application**
-    Make sure you have Maven and Java 20+ installed.
+   Make sure you have Maven and Java 20+ installed.
     ```bash
     mvn clean install
     mvn spring-boot:run
     ```
 
-3. The application will start on `http://localhost:8080`. 
+4. The application will start on `http://localhost:8080`. 
 You can now open the link and fill out the form or 
 you can make API calls to validate credit card details.
 
